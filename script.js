@@ -40,7 +40,7 @@ function Openwhatsapp(){
     window.open('https://wa.me/+918904744174?text=Jay%20Shree%20Ram%20HyperCodeLover%20Add%20Your%20Text%20Here', '_blank');
 }
 function Opentelegram(){
-    window.location.href = "";
+    window.open("https://t.me/HyperCodeLover", "_blank");
 }
 function Opengmail(){
     window.location.href = `mailto:armylovers2025@gmail.com?subject=${subject}&body=my name is ${name} and ${description}`;
