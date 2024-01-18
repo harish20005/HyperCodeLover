@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <main class="contact-content">
+    <main class="contact-content" id="contact-content">
         <div class="gallery">
 
             <img src="img/instag.png" alt="Error" id="instagram" onclick="Openinstagram();">
@@ -54,16 +54,19 @@
         <div class="form">
             <h1>Mail Us</h1>
             <label for="name">Name </label>
-            <input type="text" id="name" placeholder="eg: your name">
+            <input type="text" id="name" class="main-input" placeholder="eg: your name">
 
             <label for="subject">Subject </label>
-            <input type="text" id="subject" placeholder="Subject Auto" disabled>
+            <input type="text" id="subject" placeholder="HyperCodeLover, Help/Questions" disabled>
 
             <label for="description">Description </label>
-            <input type="text" id="description" placeholder="eg: Ask Help / Questions">
+            <input type="text" id="description" class="main-input" placeholder="eg: Ask Help / Questions">
 
             <button id="submit" onclick="SubmitForm();">Submit</button>
         </div>
+
+        <a href="#contact-content"><button id="up">&Uparrow;</button></a>
+
 
     </main>
 

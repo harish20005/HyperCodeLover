@@ -37,7 +37,7 @@ function Openyoutube(){
     window.open('https://www.youtube.com/@hypercodelover05', '_blank');
 }
 function Openwhatsapp(){
-    window.open('https://wa.me/+918904744174?text=Jay%20Shree%20Ram%20HyperCodeLover%20I%20Want%20Help', '_blank');
+    window.open('https://wa.me/+918904744174?text=Jay%20Shree%20Ram%20HyperCodeLover%20Add%20Your%20Text%20Here', '_blank');
 }
 function Opentelegram(){
     window.location.href = "";

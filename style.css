@@ -7,6 +7,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto Flex', "Teko", 'Roboto Condensed';
+    scroll-behavior: smooth;
 }
 
 html,
@@ -150,14 +151,83 @@ body.homepage{
     background-size: cover;
     background-attachment: fixed;
 }
-.home-content{
+
+main.home-content {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background: rgba(0,0,0,0.4), rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+main.home-content .home-heading{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    border-radius: 20px;
+}
+
+.iframe-container{
+    position: relative;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    border-radius: 20px;
+    transition: opacity 0.3s ease;
 }
+
+.iframe-container:hover .overlay-content {
+    opacity: 1;
+}
+
+
+
+.overlay-content h2 {
+    margin-bottom: 10px;
+}
+
+.overlay-content p {
+    margin-bottom: 20px;
+}
+
+.overlay-content a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    margin: 0.5rem;
+}
+.overlay-content a.youtube-video{
+    background: red;
+}
+
 
 
 
@@ -312,6 +382,23 @@ body.contactpage{
     border: none;
     outline: red 2px solid;
     border-radius: 5px 5px 25px 25px;
+    background: rgba(223, 62, 62, 0.703);
+    color: white;
+    cursor: pointer;
+}
+#up{
+    position:fixed;
+    bottom: 1%;
+    left: 1%;
+    padding: 0.6rem;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    outline: red 2px solid;
+    border-radius: 5px 5px 25px 25px;
+    background: rgba(223, 62, 62, 0.703);
+    color: white;
+    cursor: pointer;
 }
 .gallery {
     display: flex;
@@ -334,6 +421,9 @@ body.contactpage{
 .gallery img:hover{
     width: 100%;
     scale: 1.1;
+    box-shadow: 0 0 10px yellow,
+                0 0 20px red;
+    border: 2px solid yellow;
 }
 
 .contact-form{
@@ -363,16 +453,34 @@ body.contactpage{
     top: 5%;
     left: 5%;
     color: white;
+    cursor: pointer;
 }
 .form input{
     padding: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
     outline: none;
     border: none;
     border-radius: 20px 5px 20px 5px;
     text-align: center;
     color: black;
     border: 2px solid black;
-
+}
+.form input::placeholder{
+    font-weight: bold;
+    color: black;
+    font-family: 18px;
+}
+.form input.main-input:focus{
+    background: rgb(124, 85, 85);
+    color: rgb(8, 4, 4);
+    cursor: text;
+}
+.form input#subject::placeholder{
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
 }
 .form button#submit{
     padding: 10px;
@@ -385,6 +493,7 @@ body.contactpage{
     font-family: cursive;
     background: white;
     backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 @media (max-width: 718px){
@@ -408,5 +517,4 @@ body.contactpage{
         scale: 1.1;
     }
 }
-
 
