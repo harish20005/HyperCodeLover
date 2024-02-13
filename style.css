@@ -18,7 +18,33 @@ body {
 ::-webkit-scrollbar{
     display: none;
 }
-
+input#search {
+    position: relative; 
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+input#search::placeholder {
+    color: black;
+    font-weight: bolder;
+}
+.search-container {
+    position: relative;
+}
+.search-button-container {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+}
+button#search-button {
+    /* padding: 5px; */
+    background: transparent;
+    border: none;
+}
 header {
     position: relative;
     width: 100%;
@@ -87,15 +113,32 @@ nav.navbar {
     transition: all 0.2s ease;
 }
 
-.mobile-navbar {
+.mobile-navbar {    
+    position: fixed;
+    top: 0;
+    right: 0;
     width: 100%;
-    height: 75%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
-    opacity: 0;
-    transition: all 1s ease;
+    /* display: none; */
+    /* opacity: 0; */
+    transition: all 0.6s ease;
+    z-index: 1;
+}
+.mobile-navbar button#close-navbar {
+    font-family: sans-serif;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    background: transparent;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 5px solid rgb(255, 187, 0);
+    color: white;
+    top: 0;
+    left: 0;
 }
 
 .mobile-navbar .nav-links {
@@ -141,6 +184,11 @@ nav.navbar {
         display: flex;
     }
 }
+@media (min-width: 719px) {
+    .mobile-navbar {
+        display: none;
+    }
+}
 
 /* index.html */
 
@@ -152,12 +200,58 @@ body.socialpage{
     background-attachment: fixed;
 }
 
+header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header.index-header{
+    background: transparent;
+    backdrop-filter: blur(0);
+}
+header.index-header a{
+    text-decoration: none;
+}
+header #info-dot{
+    background: #ffffff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+button#info-dot:active{
+    transform: scale(0.95);
+}
+
 main.social-content{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.social-links img{
+    width: 5rem;
+    border: 2px solid orangered;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+
+.social-links h3{
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.social-links p{
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .social-links{
@@ -167,7 +261,7 @@ main.social-content{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: column;
 }
 .social-links a{
@@ -182,12 +276,50 @@ main.social-content{
     border-radius: 25px;
     transition: background 0.2s ease,
                 transform 0.2s ease,
-                color 0.2s ease;
+                color 0.2s ease,
+                box-shadow 0.3s ease;
 }
 .social-links a:hover{
+    box-shadow: 0 0 5px 2px yellow,
+                0 0 10px 2px white,
+                0 0 20px 2px rgb(255, 255, 255);
     color: rgb(191, 200, 229);
     background: rgb(122, 63, 63);
     transform: scale(1.1);
+}
+
+footer {
+    width: 100%;
+    height: 25%;
+    background: #000;
+}
+footer .footer-info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+footer .footer-head {
+    position: absolute;
+    top: 5%;
+}
+footer .button-close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+footer .button-close button{
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    font-weight: lighter;
+}
+#index-footer {
+    display: none;
 }
 
 /* home.html */
@@ -229,7 +361,12 @@ main.home-content .home-heading{
     width: 100%;
     height: 300px;
     border: 1px solid white;
-    border-radius: 20px;
+    border-radius: 20px;   
+    transition: box-shadow 0.3s ease;
+}
+.iframe-container:hover iframe{
+    box-shadow: 0 0 10px yellow,
+                0 0 20px rgb(255, 0, 0);
 }
 
 .overlay-content {
@@ -328,7 +465,12 @@ main.about-main{
     transform: translateY(100px);
     opacity: 0;
     transition: all 0.4s ease-in-out;
+    text-align: center;
 }
+.overlay h2 {
+    margin-bottom: 0.5rem;
+}
+
 .img-container:hover .overlay{
     transform: translateY(0px);
     opacity: 1;
@@ -360,10 +502,163 @@ main.about-main{
     margin-top: 1rem;
     text-transform: uppercase;
 }
-
 .about-content:hover{
     backdrop-filter: blur(10px);
 }
+div.html-progress {
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+    width: 15rem;
+    height: 2rem;
+    background: rgb(79, 79, 28);
+    box-shadow: inset 5px 5px 10px black, inset -5px -5px 10px black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----------------------------- */
+
+div.html-progress p.html-progress-text {
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    z-index: 999;
+    color: wheat;
+}
+div.html-progress p.css-progress-text {
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    z-index: 999;
+    color: wheat;
+}
+div.html-progress p.js-progress-text {
+    position: absolute;
+    top: -25%;
+    left: -50%;
+    z-index: 999;
+    color: wheat;
+}
+div.html-progress p.C-progress-text {
+    position: absolute;
+    top: -25%;
+    left: -20%;
+    z-index: 999;
+    color: wheat;
+}
+div.html-progress p.game-development-progress-text {
+    position: absolute;
+    top: -25%;
+    left: -75%;
+    z-index: 999;
+    color: wheat;
+}
+
+/* ----------------------------- */
+
+.html-progress div.html-progress-value {
+    position: absolute;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    background: yellow;
+    box-shadow: inset -5px -5px 10px rgb(67, 67, 40);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.html-progress div.css-progress-value {
+    position: absolute;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background: yellow;
+    box-shadow: inset -5px -5px 10px rgb(67, 67, 40);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.html-progress div.js-progress-value {
+    position: absolute;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background: yellow;
+    box-shadow: inset -5px -5px 10px rgb(67, 67, 40);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.html-progress div.C-progress-value {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: yellow;
+    box-shadow: inset -5px -5px 10px rgb(67, 67, 40);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.html-progress div.game-development-progress-value {
+    position: absolute;
+    left: 0;
+    width: 95%;
+    height: 100%;
+    background: yellow;
+    box-shadow: inset -5px -5px 10px rgb(67, 67, 40);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ----------------------------- */
+
+div.html-progress-value p {
+    position: absolute; 
+    top: -25%;
+    color: #000;
+}
+div.css-progress-value p {
+    position: absolute; 
+    top: -25%;
+    color: #000;
+}
+div.js-progress-value p {
+    position: absolute; 
+    top: -25%;
+    color: #000;
+}
+div.C-progress-value p {
+    position: absolute; 
+    top: -25%;
+    color: #000;
+}
+div.game-development-progress-value p {
+    position: absolute; 
+    top: -25%;
+    color: #000;
+}
+
+/* ----------------------------- */
 
 @media (max-width: 718px){
     .navbar .button img{
@@ -500,6 +795,7 @@ body.contactpage{
     color: white;
     gap: 15px;
 }
+
 .form h1{
     position: absolute;
     top: 5%;
@@ -569,4 +865,3 @@ body.contactpage{
         scale: 1.1;
     }
 }
-
