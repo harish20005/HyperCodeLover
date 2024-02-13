@@ -60,16 +60,5 @@ function Opengithub() {
     window.open('https://github.com/harish20005/HyperCodeLover/tree/main', '_blank');
 }
 
-let indexFooter = document.getElementById("index-footer");
-console.log("tried");
 
-function FooterInfoOn() {
-
-    indexFooter.style.display = "flex";
-
-}
-
-function FooterInfoOff() {
-    indexFooter.style.display = "none";
-}
 

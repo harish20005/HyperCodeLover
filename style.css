@@ -211,23 +211,6 @@ header.index-header{
     background: transparent;
     backdrop-filter: blur(0);
 }
-header.index-header a{
-    text-decoration: none;
-}
-header #info-dot{
-    background: #ffffff;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-}
-button#info-dot:active{
-    transform: scale(0.95);
-}
 
 main.social-content{
     width: 100%;
